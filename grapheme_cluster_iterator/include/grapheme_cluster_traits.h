@@ -6,6 +6,7 @@ namespace yol::grapheme_cluster_traits {
 
 	struct utf16_traits {
 		using char_type = char16_t;
+		static constexpr char_type null_char = u'\0';
 
 		/// <summary>
 		/// クラスタのサイズを計算する
