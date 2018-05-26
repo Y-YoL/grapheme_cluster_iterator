@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "grapheme_cluster_iterator", "grapheme_cluster_iterator\grapheme_cluster_iterator.vcxproj", "{17A55F69-16A6-4AA9-9629-1D8F99CBA488}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{CA75F4F3-0C90-40A2-8A7D-CF392005B9AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{17A55F69-16A6-4AA9-9629-1D8F99CBA488}.Release|x64.Build.0 = Release|x64
 		{17A55F69-16A6-4AA9-9629-1D8F99CBA488}.Release|x86.ActiveCfg = Release|Win32
 		{17A55F69-16A6-4AA9-9629-1D8F99CBA488}.Release|x86.Build.0 = Release|Win32
+		{CA75F4F3-0C90-40A2-8A7D-CF392005B9AA}.Debug|x64.ActiveCfg = Debug|x64
+		{CA75F4F3-0C90-40A2-8A7D-CF392005B9AA}.Debug|x64.Build.0 = Debug|x64
+		{CA75F4F3-0C90-40A2-8A7D-CF392005B9AA}.Debug|x86.ActiveCfg = Debug|Win32
+		{CA75F4F3-0C90-40A2-8A7D-CF392005B9AA}.Debug|x86.Build.0 = Debug|Win32
+		{CA75F4F3-0C90-40A2-8A7D-CF392005B9AA}.Release|x64.ActiveCfg = Release|x64
+		{CA75F4F3-0C90-40A2-8A7D-CF392005B9AA}.Release|x64.Build.0 = Release|x64
+		{CA75F4F3-0C90-40A2-8A7D-CF392005B9AA}.Release|x86.ActiveCfg = Release|Win32
+		{CA75F4F3-0C90-40A2-8A7D-CF392005B9AA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
