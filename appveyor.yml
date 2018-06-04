@@ -11,5 +11,7 @@ configuration:
 - Debug
 
 build:
-  project: grapheme_cluster_iterator.sln
   verbosity: minimal
+
+test_script:
+- ps: Get-ChildItem *.dll -Recurse | %{ vstest.console /logger:Appveyor $_.FullName }
