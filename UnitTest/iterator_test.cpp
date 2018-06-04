@@ -24,10 +24,19 @@ namespace UnitTest
 			Assert::IsTrue(has_iterator_traits<basic_grapheme_cluster_string::iterator>::value);
 		}
 
-		TEST_METHOD(TestIteratorDistance)
+		TEST_METHOD(TestAsciiDistance)
 		{
 			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
 			basic_grapheme_cluster_string text(u"abcd");
+
+			auto size = std::distance(text.begin(), text.end());
+			Assert::AreEqual(4, static_cast<int>(size));
+		}
+
+		TEST_METHOD(TestSurrogatePairDistance)
+		{
+			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
+			basic_grapheme_cluster_string text(u"𧸐𡸴𣷹𣏓");
 
 			auto size = std::distance(text.begin(), text.end());
 			Assert::AreEqual(4, static_cast<int>(size));
