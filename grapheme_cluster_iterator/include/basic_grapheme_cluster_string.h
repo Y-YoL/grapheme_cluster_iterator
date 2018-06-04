@@ -11,6 +11,7 @@ namespace yol {
 		using cluster_traits = Traits;
 		using char_type = typename cluster_traits::char_type;
 
+	public:
 		using iterator = detail::grapheme_cluster_iterator<cluster_traits>;
 
 	public:

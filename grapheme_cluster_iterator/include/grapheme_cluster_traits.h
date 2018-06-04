@@ -15,7 +15,7 @@ namespace yol::grapheme_cluster_traits {
 		/// <returns>クラスタのサイズ</returns>
 		static std::size_t calc_cluster_size(const char_type* c)
 		{
-
+			throw 0;
 		}
 	};
 }
