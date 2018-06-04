@@ -14,4 +14,7 @@ build:
   verbosity: minimal
 
 test_script:
-- ps: Get-ChildItem *.dll -Recurse | %{ vstest.console /logger:Appveyor $_.FullName }
+- ps: >-
+    $dll = Get-ChildItem UnitTest.dll -Recurse
+
+    vstest.console /logger:Appveyor $dll.FullName
