@@ -6,6 +6,13 @@ namespace yol::detail {
 	template<class Traits>
 	class grapheme_cluster_iterator {
 	public:
+		using iterator_category = std::forward_iterator_tag;
+		using value_type = int;
+		using difference_type = std::ptrdiff_t;
+		using pointer = int*;
+		using reference = int&;
+
+	public:
 		grapheme_cluster_iterator() = default;
 		grapheme_cluster_iterator(basic_grapheme_cluster_string_base<Traits>*)
 		{
@@ -23,7 +30,7 @@ namespace yol::detail {
 			throw 0;
 		}
 
-		int& operator*()
+		reference operator*()
 		{
 			throw 0;
 		}
