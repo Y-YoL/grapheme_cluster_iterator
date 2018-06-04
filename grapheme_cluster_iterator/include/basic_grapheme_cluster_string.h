@@ -22,7 +22,7 @@ namespace yol {
 		}
 
 		iterator begin() { return iterator(this); }
-		iterator end() { return iterator(this); }
+		iterator end() { return iterator(nullptr); }
 
 		const char_type* c_str() const { return m_text.data(); }
 	};

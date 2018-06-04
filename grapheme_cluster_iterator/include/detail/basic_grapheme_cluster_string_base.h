@@ -8,6 +8,7 @@ namespace yol::detail {
 	class basic_grapheme_cluster_string_base {
 		using cluster_traits = Traits;
 		using char_type = typename cluster_traits::char_type;
+		using buffer_type = std::basic_string<char_type>;
 
 	protected:
 		basic_grapheme_cluster_string_base() = default;
@@ -17,7 +18,11 @@ namespace yol::detail {
 			m_text.push_back(cluster_traits::null_char);
 		}
 
+	public:
+		buffer_type& get_buffer() { return m_text; }
+		const buffer_type& get_buffer() const { return m_text; }
+
 	protected:
-		std::vector<char_type> m_text;
+		buffer_type m_text;
 	};
 }

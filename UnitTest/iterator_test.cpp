@@ -30,7 +30,7 @@ namespace UnitTest
 			basic_grapheme_cluster_string text(u"abcd");
 
 			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual<long>(4, size);
+			Assert::AreEqual(4, static_cast<int>(size));
 		}
 
 		/*
