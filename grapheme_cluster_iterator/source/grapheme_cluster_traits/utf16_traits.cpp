@@ -73,6 +73,11 @@ namespace yol::grapheme_cluster_traits {
 
 				break;
 
+				// GB9
+			case UGraphemeClusterBreak::U_GCB_EXTEND:
+			case UGraphemeClusterBreak::U_GCB_ZWJ:
+				break;
+
 				// GB9a
 			case UGraphemeClusterBreak::U_GCB_SPACING_MARK:
 				break;
