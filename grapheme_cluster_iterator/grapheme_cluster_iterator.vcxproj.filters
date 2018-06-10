@@ -16,6 +16,9 @@
     <Filter Include="ヘッダー ファイル\detail">
       <UniqueIdentifier>{567ef130-7504-4f3c-b0bc-b494d8d22feb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\grapheme_cluster_traits">
+      <UniqueIdentifier>{f3668c27-5c99-4351-9452-744146328078}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -43,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="source\test.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="source\grapheme_cluster_traits\utf16_traits.cpp">
+      <Filter>ソース ファイル\grapheme_cluster_traits</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

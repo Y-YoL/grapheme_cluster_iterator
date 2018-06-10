@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <cstddef>
+#include <string_view>
 
 namespace yol::grapheme_cluster_traits {
 
@@ -9,13 +10,20 @@ namespace yol::grapheme_cluster_traits {
 		static constexpr char_type null_char = u'\0';
 
 		/// <summary>
+		/// コードポイントのサイズを計算する
+		/// </summary>
+		/// <param name="c">コードポイントのサイズを計算する文字</param>
+		/// <returns>コードポイントのサイズ</returns>
+		static std::size_t calc_codepoint_size(std::basic_string_view<char_type> c);
+
+		/// <summary>
 		/// クラスタのサイズを計算する
 		/// </summary>
 		/// <param name="c">計算を開始する位置</param>
 		/// <returns>クラスタのサイズ</returns>
-		static std::size_t calc_cluster_size(const char_type* c)
+		static std::size_t calc_cluster_size(std::basic_string_view<char_type> c)
 		{
-			throw 0;
+			return calc_codepoint_size(c);
 		}
 	};
 }

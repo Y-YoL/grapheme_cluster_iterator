@@ -49,8 +49,8 @@ namespace yol::detail {
 		grapheme_cluster_iterator& operator++()
 		{
 			if (m_owner) {
-				// todo: += ??
-				m_index++;
+				std::basic_string_view<typename cluster_traits::char_type> view = m_owner->get_buffer();
+				m_index += cluster_traits::calc_cluster_size(view.substr(m_index));
 			}
 
 			return *this;
