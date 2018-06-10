@@ -1,7 +1,11 @@
 ﻿
 #include "stdafx.h"
 #include "../../include/grapheme_cluster_traits.h"
+#if defined(USE_LOCAL_ICU)
+#include <unicode/uchar.h>
+#else
 #include <icu.h>
+#endif
 #include <optional>
 
 namespace {

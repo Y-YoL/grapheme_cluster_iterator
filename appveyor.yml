@@ -8,13 +8,15 @@ clone_depth: 1
 
 platform: x64
 configuration:
-- Debug
+- DebugWin8
 
 build:
   verbosity: minimal
 
 test_script:
 - ps: >-
+    Copy-Item .\external\icu\bin64\*.dll .\bin\x64\DebugWin8\ -Verbose
+
     $dll = Get-ChildItem UnitTest.dll -Recurse
 
     vstest.console /logger:Appveyor $dll.FullName
