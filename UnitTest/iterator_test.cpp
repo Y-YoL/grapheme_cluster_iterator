@@ -49,7 +49,7 @@ namespace UnitTest
 			Assert::AreEqual(2, static_cast<int>(size));
 		}
 
-		TEST_METHOD(TestReturnCodeDistance)
+		TEST_METHOD(TestReturnCodeDistanceGB3)
 		{
 			basic_grapheme_cluster_string text(u"\n\n\r\r\n");
 
@@ -63,6 +63,24 @@ namespace UnitTest
 
 			auto size = std::distance(text.begin(), text.end());
 			Assert::AreEqual(5, static_cast<int>(size));
+		}
+
+		TEST_METHOD(TestReturnCodeDistanceGB4)
+		{
+			const char16_t buffer[] = { u'\n', u'\xff9e', u'\0' };
+			basic_grapheme_cluster_string text(buffer);
+
+			auto size = std::distance(text.begin(), text.end());
+			Assert::AreEqual(2, static_cast<int>(size));
+		}
+
+		TEST_METHOD(TestHangulDistance)
+		{
+			const char16_t buffer[] = { u'ᄀ', u'ᅡ', u'ᆨ', u'\0' };
+			basic_grapheme_cluster_string text(buffer);
+
+			auto size = std::distance(text.begin(), text.end());
+			Assert::AreEqual(1, static_cast<int>(size));
 		}
 
 		/*
