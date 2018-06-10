@@ -36,44 +36,50 @@ namespace yol::grapheme_cluster_traits {
 		return c;
 	}
 
+	/// <summary>
+	/// クラスタのサイズを計算する
+	/// </summary>
+	/// <param name="text">計算を開始する位置</param>
+	/// <returns>クラスタのサイズ</returns>
+	/// <remarks>http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundary_Rules</remarks>
 	std::size_t utf16_traits::calc_cluster_size(string_view text)
 	{
 		if (text.length() <= 1) {
 			return text.length();
 		}
 
-		std::size_t size = 0;
-		std::optional<UGraphemeClusterBreak> prev;
+		auto prev = GetGraphemeClusterBreak(get_codepoint(text));
+		auto size = calc_codepoint_size(text);;
+		text = text.substr(size);
+
 		while (!text.empty()) {
 			auto c = get_codepoint(text);
 			auto gcb = GetGraphemeClusterBreak(c);
 
 			switch (gcb) {
+				// GB999
 			case UGraphemeClusterBreak::U_GCB_OTHER:
-				if (prev) {
+				return size;
+
+				// GB3
+			case UGraphemeClusterBreak::U_GCB_LF:
+				if (prev != UGraphemeClusterBreak::U_GCB_CR) {
 					return size;
 				}
 
-				size += U16_LENGTH(c);
-				text = text.substr(U16_LENGTH(c));
 				break;
 
+				// GB9a
 			case UGraphemeClusterBreak::U_GCB_SPACING_MARK:
-				size += U16_LENGTH(c);
-				text = text.substr(U16_LENGTH(c));
 				break;
 
 			default:
-				if (prev) {
-					return size;
-				}
-
-				size += U16_LENGTH(c);
-				text = text.substr(U16_LENGTH(c));
-				break;
+				return size;
 			}
 
 			prev = gcb;
+			size += U16_LENGTH(c);
+			text = text.substr(U16_LENGTH(c));
 		}
 
 		return size;
