@@ -22,6 +22,8 @@ namespace yol::detail {
 		buffer_type& get_buffer() { return m_text; }
 		const buffer_type& get_buffer() const { return m_text; }
 
+		std::basic_string_view<char_type> get_view() const { return m_text; }
+
 	protected:
 		buffer_type m_text;
 	};

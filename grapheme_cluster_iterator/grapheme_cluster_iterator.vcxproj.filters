@@ -39,6 +39,9 @@
     <ClInclude Include="include\detail\grapheme_cluster_iterator.h">
       <Filter>ヘッダー ファイル\detail</Filter>
     </ClInclude>
+    <ClInclude Include="include\detail\grapheme_cluster_type.h">
+      <Filter>ヘッダー ファイル\detail</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

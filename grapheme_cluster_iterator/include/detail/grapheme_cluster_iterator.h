@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "basic_grapheme_cluster_string_base.h"
+#include "grapheme_cluster_type.h"
 
 namespace yol::detail {
 	template<class Traits>
@@ -10,10 +11,10 @@ namespace yol::detail {
 
 	public:
 		using iterator_category = std::forward_iterator_tag;
-		using value_type = int;
+		using value_type = grapheme_cluster_type<cluster_traits>;
 		using difference_type = std::ptrdiff_t;
-		using pointer = int*;
-		using reference = int&;
+		using pointer = value_type*;
+		using reference = value_type;
 
 	public:
 		grapheme_cluster_iterator()
@@ -56,9 +57,9 @@ namespace yol::detail {
 			return *this;
 		}
 
-		reference operator*()
+		value_type operator*()
 		{
-			throw 0;
+			return { m_owner, m_index };
 		}
 
 	private:

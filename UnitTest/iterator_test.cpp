@@ -100,16 +100,5 @@ namespace UnitTest
 			Assert::AreEqual(4, static_cast<int>(size));
 		}
 #endif
-
-		/*
-		TEST_METHOD(TestMethod1)
-		{
-			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
-			basic_grapheme_cluster_string hoge(u"abcdefg");
-
-			for (auto& value : hoge) {
-			}
-		}*/
-
 	};
 }
