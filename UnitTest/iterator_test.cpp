@@ -5,7 +5,9 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest
-{		
+{
+	using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
+
 	TEST_CLASS(IteratorTest)
 	{
 	public:
@@ -20,13 +22,11 @@ namespace UnitTest
 
 		TEST_METHOD(TestIteratorTraits)
 		{
-			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
 			Assert::IsTrue(has_iterator_traits<basic_grapheme_cluster_string::iterator>::value);
 		}
 
 		TEST_METHOD(TestAsciiDistance)
 		{
-			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
 			basic_grapheme_cluster_string text(u"abcd");
 
 			auto size = std::distance(text.begin(), text.end());
@@ -35,7 +35,6 @@ namespace UnitTest
 
 		TEST_METHOD(TestSurrogatePairDistance)
 		{
-			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
 			basic_grapheme_cluster_string text(u"𧸐𡸴𣷹𣏓");
 
 			auto size = std::distance(text.begin(), text.end());
@@ -44,7 +43,6 @@ namespace UnitTest
 
 		TEST_METHOD(TestSpacingMarkDistance)
 		{
-			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
 			basic_grapheme_cluster_string text(u"நிกำ");
 
 			auto size = std::distance(text.begin(), text.end());
@@ -53,7 +51,6 @@ namespace UnitTest
 
 		TEST_METHOD(TestReturnCodeDistance)
 		{
-			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
 			basic_grapheme_cluster_string text(u"\n\n\r\r\n");
 
 			auto size = std::distance(text.begin(), text.end());
@@ -62,7 +59,6 @@ namespace UnitTest
 
 		TEST_METHOD(TestExtendDistance)
 		{
-			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
 			basic_grapheme_cluster_string text(u"ｶﾞｷﾞｸﾞｹﾞｺﾞ");
 
 			auto size = std::distance(text.begin(), text.end());
