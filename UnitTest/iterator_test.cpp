@@ -91,6 +91,16 @@ namespace UnitTest
 			Assert::AreEqual(1, static_cast<int>(size));
 		}
 
+#if false	// todo: 思ったより複雑そうなので後回し
+		TEST_METHOD(TestEmojiDistance)
+		{
+			basic_grapheme_cluster_string text(u"🎅🎅🏿🎅🏻🎅🏽");
+
+			auto size = std::distance(text.begin(), text.end());
+			Assert::AreEqual(4, static_cast<int>(size));
+		}
+#endif
+
 		/*
 		TEST_METHOD(TestMethod1)
 		{

@@ -127,6 +127,12 @@ namespace yol::grapheme_cluster_traits {
 
 				return size;
 
+				// GB5
+			case UGraphemeClusterBreak::U_GCB_CONTROL:
+			case UGraphemeClusterBreak::U_GCB_CR:
+			case UGraphemeClusterBreak::U_GCB_LF:
+				return size;
+
 				// GB6, 7, 8
 			case UGraphemeClusterBreak::U_GCB_L:
 			case UGraphemeClusterBreak::U_GCB_V:
@@ -149,6 +155,7 @@ namespace yol::grapheme_cluster_traits {
 				break;
 
 			default:
+				throw std::exception("not implemented.");
 				return size;
 			}
 
