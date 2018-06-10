@@ -83,6 +83,14 @@ namespace UnitTest
 			Assert::AreEqual(1, static_cast<int>(size));
 		}
 
+		TEST_METHOD(TestPrependDistance)
+		{
+			basic_grapheme_cluster_string text(u"؀۱");
+
+			auto size = std::distance(text.begin(), text.end());
+			Assert::AreEqual(1, static_cast<int>(size));
+		}
+
 		/*
 		TEST_METHOD(TestMethod1)
 		{

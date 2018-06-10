@@ -120,6 +120,11 @@ namespace yol::grapheme_cluster_traits {
 			switch (gcb) {
 				// GB999
 			case UGraphemeClusterBreak::U_GCB_OTHER:
+				// GB9b
+				if (prev == UGraphemeClusterBreak::U_GCB_PREPEND) {
+					break;
+				}
+
 				return size;
 
 				// GB6, 7, 8
