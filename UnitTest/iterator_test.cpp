@@ -42,6 +42,15 @@ namespace UnitTest
 			Assert::AreEqual(4, static_cast<int>(size));
 		}
 
+		TEST_METHOD(TestExtendDistance)
+		{
+			using basic_grapheme_cluster_string = yol::basic_grapheme_cluster_string<yol::grapheme_cluster_traits::utf16_traits>;
+			basic_grapheme_cluster_string text(u"நிกำ");
+
+			auto size = std::distance(text.begin(), text.end());
+			Assert::AreEqual(2, static_cast<int>(size));
+		}
+
 		/*
 		TEST_METHOD(TestMethod1)
 		{
