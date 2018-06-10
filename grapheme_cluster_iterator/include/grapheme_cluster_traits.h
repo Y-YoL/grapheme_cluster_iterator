@@ -39,9 +39,6 @@ namespace yol::grapheme_cluster_traits {
 		/// </summary>
 		/// <param name="text">計算を開始する位置</param>
 		/// <returns>クラスタのサイズ</returns>
-		static std::size_t calc_cluster_size(string_view text)
-		{
-			return calc_codepoint_size(text);
-		}
+		static std::size_t calc_cluster_size(string_view text);
 	};
 }
