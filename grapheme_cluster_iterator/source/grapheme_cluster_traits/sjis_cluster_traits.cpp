@@ -27,12 +27,12 @@ namespace yol::grapheme_cluster_traits {
 			return 0;
 		}
 
-		codepoint_type c = text[0];
-		if (calc_cluster_size(text)) {
-			c |= static_cast<codepoint_type>(text[1]) >> 8;
+		codepoint_type c = static_cast<std::uint8_t>(text[0]);
+		if (calc_cluster_size(text) == 2) {
+			return (c << 8) | static_cast<std::uint8_t>(text[1]);
+		} else {
+			return c;
 		}
-
-		return c;
 	}
 
 	std::size_t sjis_traits::calc_cluster_size(string_view text)

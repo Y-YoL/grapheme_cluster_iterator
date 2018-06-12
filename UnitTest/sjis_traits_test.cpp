@@ -42,5 +42,23 @@ namespace UnitTest
 			auto it = text.begin();
 			Assert::IsTrue((*it).view() == "あ");
 		}
+
+		TEST_METHOD(TestCodePoint)
+		{
+			char text[] = "A";
+
+			auto cp = yol::grapheme_cluster_traits::sjis_traits::get_codepoint(text);
+
+			Assert::AreEqual<unsigned>(cp, 0x41);
+		}
+
+		TEST_METHOD(TestMultiByteCodePoint)
+		{
+			char text[] = "あ";
+
+			auto cp = yol::grapheme_cluster_traits::sjis_traits::get_codepoint(text);
+
+			Assert::AreEqual<unsigned>(cp, 0x82a0);
+		}
 	};
 }
