@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ヘッダー ファイル\detail">
+      <UniqueIdentifier>{567ef130-7504-4f3c-b0bc-b494d8d22feb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\grapheme_cluster_traits">
+      <UniqueIdentifier>{f3668c27-5c99-4351-9452-744146328078}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -21,10 +27,34 @@
     <ClInclude Include="targetver.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="include\grapheme_cluster_traits.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\basic_grapheme_cluster_string.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\detail\basic_grapheme_cluster_string_base.h">
+      <Filter>ヘッダー ファイル\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="include\detail\grapheme_cluster_iterator.h">
+      <Filter>ヘッダー ファイル\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="include\detail\grapheme_cluster_type.h">
+      <Filter>ヘッダー ファイル\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="include\grapheme_cluster_string.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="source\test.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="source\grapheme_cluster_traits\utf16_traits.cpp">
+      <Filter>ソース ファイル\grapheme_cluster_traits</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
