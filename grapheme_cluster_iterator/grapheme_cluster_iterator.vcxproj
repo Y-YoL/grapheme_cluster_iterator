@@ -256,6 +256,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\grapheme_cluster_traits\sjis_cluster_traits.cpp" />
     <ClCompile Include="source\grapheme_cluster_traits\utf16_traits.cpp" />
     <ClCompile Include="source\test.cpp" />
     <ClCompile Include="stdafx.cpp">
