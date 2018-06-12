@@ -54,7 +54,10 @@ namespace UnitTest
 
 		TEST_METHOD(TestMultiByteCodePoint)
 		{
-			char text[] = "あ";
+#pragma warning(push)
+#pragma warning(disable:4838 4309)
+			char text[] = { 0x82, 0xa0, 0x00 }; // Sift-jis:"あ"
+#pragma warning(pop)
 
 			auto cp = yol::grapheme_cluster_traits::sjis_traits::get_codepoint(text);
 
