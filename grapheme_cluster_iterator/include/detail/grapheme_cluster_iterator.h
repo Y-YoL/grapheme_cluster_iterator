@@ -4,6 +4,9 @@
 #include "grapheme_cluster_type.h"
 
 namespace yol::detail {
+	/// <summary>
+	/// grapheme_cluster_stringのイテレータ
+	/// </summary>
 	template<class Traits>
 	class grapheme_cluster_iterator {
 		using owner_type = basic_grapheme_cluster_string_base<Traits>;

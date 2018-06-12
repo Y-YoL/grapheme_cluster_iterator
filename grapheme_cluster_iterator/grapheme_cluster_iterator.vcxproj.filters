@@ -42,6 +42,9 @@
     <ClInclude Include="include\detail\grapheme_cluster_type.h">
       <Filter>ヘッダー ファイル\detail</Filter>
     </ClInclude>
+    <ClInclude Include="include\grapheme_cluster_string.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

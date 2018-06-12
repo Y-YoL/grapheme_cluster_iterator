@@ -5,6 +5,9 @@
 
 namespace yol::grapheme_cluster_traits {
 
+	/// <summary>
+	/// UTF16を扱うためのtraits
+	/// </summary>
 	struct utf16_traits {
 		/// <summary>
 		/// 文字の型
