@@ -56,5 +56,8 @@
     <ClCompile Include="source\grapheme_cluster_traits\utf16_traits.cpp">
       <Filter>ソース ファイル\grapheme_cluster_traits</Filter>
     </ClCompile>
+    <ClCompile Include="source\grapheme_cluster_traits\sjis_cluster_traits.cpp">
+      <Filter>ソース ファイル\grapheme_cluster_traits</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
