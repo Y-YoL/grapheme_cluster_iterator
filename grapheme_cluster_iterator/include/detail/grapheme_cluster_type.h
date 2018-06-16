@@ -23,6 +23,17 @@ namespace yol::detail {
 			return view.substr(m_index, size);
 		}
 
+		bool operator==(char_type c) const
+		{
+			auto v = view();
+			return v.length() == 1 && v[0] == c;
+		}
+
+		bool operator==(std::basic_string_view<char_type> c) const
+		{
+			return view() == c;
+		}
+
 	private:
 		owner_type* m_owner;
 		difference_type m_index;

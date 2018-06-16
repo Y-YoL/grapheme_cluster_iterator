@@ -39,5 +39,14 @@ namespace UnitTest
 			auto it = text.begin();
 			Assert::IsTrue((*it).view() == u"ｶﾞ");
 		}
+
+		TEST_METHOD(TestCompare)
+		{
+			basic_grapheme_cluster_string text(u"abcd");
+
+			auto it = text.begin();
+			Assert::IsTrue((*it) == u"a");
+			Assert::IsTrue((*it) == u'a');
+		}
 	};
 }
