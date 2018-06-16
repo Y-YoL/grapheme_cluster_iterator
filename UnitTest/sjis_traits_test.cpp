@@ -35,6 +35,14 @@ namespace UnitTest
 			Assert::AreEqual(5, static_cast<int>(size));
 		}
 
+		TEST_METHOD(TestReturnCodeDistance)
+		{
+			string text("\n\n\r\r\n");
+
+			auto size = std::distance(text.begin(), text.end());
+			Assert::AreEqual(4, static_cast<int>(size));
+		}
+
 		TEST_METHOD(TestMultiByteIterator)
 		{
 			string text("あいうえお");

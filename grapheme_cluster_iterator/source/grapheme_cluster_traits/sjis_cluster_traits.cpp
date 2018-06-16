@@ -14,7 +14,7 @@ namespace yol::grapheme_cluster_traits {
 
 	std::size_t sjis_traits::calc_codepoint_size(string_view text)
 	{
-		if (text.length() < 2) {
+		if (text.length() <= 1) {
 			return text.length();
 		}
 
@@ -37,6 +37,14 @@ namespace yol::grapheme_cluster_traits {
 
 	std::size_t sjis_traits::calc_cluster_size(string_view text)
 	{
+		if (text.length() <= 1) {
+			return text.length();
+		}
+
+		if (text[0] == '\r' && text[1] == '\n') {
+			return 2;
+		}
+
 		return calc_codepoint_size(text);
 	}
 }
