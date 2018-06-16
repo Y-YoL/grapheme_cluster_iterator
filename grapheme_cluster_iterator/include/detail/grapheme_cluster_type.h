@@ -16,6 +16,18 @@ namespace yol::detail {
 		{
 		}
 
+		std::basic_string_view<char_type> operator=(std::basic_string_view<char_type> c)
+		{
+			auto& buffer = m_owner->get_buffer();
+			auto view = m_owner->get_view().substr(m_index);
+			auto size = cluster_traits::calc_cluster_size(view);
+
+			buffer.erase(m_index, size);
+			buffer.insert(m_index, c);
+
+			return c;
+		}
+
 		std::basic_string_view<char_type> view() const
 		{
 			auto view = m_owner->get_view();

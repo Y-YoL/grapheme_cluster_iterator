@@ -48,5 +48,31 @@ namespace UnitTest
 			Assert::IsTrue((*it) == u"a");
 			Assert::IsTrue((*it) == u'a');
 		}
+
+		TEST_METHOD(TestInsert)
+		{
+			basic_grapheme_cluster_string text(u"abcd");
+
+			auto it = text.begin();
+			std::advance(it, 1);
+			*it = u"あ";
+
+			std::basic_string_view<char16_t> ret = text.c_str();
+			Assert::AreEqual<unsigned>(ret.length(), 4);
+			Assert::IsTrue(ret == u"aあcd");
+		}
+
+		TEST_METHOD(TestErase)
+		{
+			basic_grapheme_cluster_string text(u"abcd");
+
+			auto it = text.begin();
+			std::advance(it, 1);
+			*it = u"";
+
+			std::basic_string_view<char16_t> ret = text.c_str();
+			Assert::AreEqual<unsigned>(ret.length(), 3);
+			Assert::IsTrue(ret == u"acd");
+		}
 	};
 }
