@@ -11,7 +11,6 @@ namespace UnitTest
 	TEST_CLASS(IteratorTest)
 	{
 	public:
-
 		template<class, class = void>
 		struct has_iterator_traits
 			: std::false_type {};
@@ -25,80 +24,55 @@ namespace UnitTest
 			Assert::IsTrue(has_iterator_traits<basic_grapheme_cluster_string::iterator>::value);
 		}
 
-		TEST_METHOD(TestAsciiDistance)
+		TEST_METHOD(TestAscii)
 		{
 			basic_grapheme_cluster_string text(u"abcd");
 
-			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual(4, static_cast<int>(size));
+			auto it = text.begin();
+			Assert::IsTrue((*it).view() == u"a");
 		}
 
-		TEST_METHOD(TestSurrogatePairDistance)
-		{
-			basic_grapheme_cluster_string text(u"𧸐𡸴𣷹𣏓");
-
-			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual(4, static_cast<int>(size));
-		}
-
-		TEST_METHOD(TestSpacingMarkDistance)
-		{
-			basic_grapheme_cluster_string text(u"நிกำ");
-
-			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual(2, static_cast<int>(size));
-		}
-
-		TEST_METHOD(TestReturnCodeDistanceGB3)
-		{
-			basic_grapheme_cluster_string text(u"\n\n\r\r\n");
-
-			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual(4, static_cast<int>(size));
-		}
-
-		TEST_METHOD(TestExtendDistance)
+		TEST_METHOD(TestExtend)
 		{
 			basic_grapheme_cluster_string text(u"ｶﾞｷﾞｸﾞｹﾞｺﾞ");
 
-			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual(5, static_cast<int>(size));
+			auto it = text.begin();
+			Assert::IsTrue((*it).view() == u"ｶﾞ");
 		}
 
-		TEST_METHOD(TestReturnCodeDistanceGB4)
+		TEST_METHOD(TestCompare)
 		{
-			const char16_t buffer[] = { u'\n', u'\xff9e', u'\0' };
-			basic_grapheme_cluster_string text(buffer);
+			basic_grapheme_cluster_string text(u"abcd");
 
-			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual(2, static_cast<int>(size));
+			auto it = text.begin();
+			Assert::IsTrue((*it) == u"a");
+			Assert::IsTrue((*it) == u'a');
 		}
 
-		TEST_METHOD(TestHangulDistance)
+		TEST_METHOD(TestInsert)
 		{
-			const char16_t buffer[] = { u'ᄀ', u'ᅡ', u'ᆨ', u'\0' };
-			basic_grapheme_cluster_string text(buffer);
+			basic_grapheme_cluster_string text(u"abcd");
 
-			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual(1, static_cast<int>(size));
+			auto it = text.begin();
+			std::advance(it, 1);
+			*it = u"あ";
+
+			std::basic_string_view<char16_t> ret = text.c_str();
+			Assert::AreEqual<unsigned>(ret.length(), 4);
+			Assert::IsTrue(ret == u"aあcd");
 		}
 
-		TEST_METHOD(TestPrependDistance)
+		TEST_METHOD(TestErase)
 		{
-			basic_grapheme_cluster_string text(u"؀۱");
+			basic_grapheme_cluster_string text(u"abcd");
 
-			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual(1, static_cast<int>(size));
+			auto it = text.begin();
+			std::advance(it, 1);
+			*it = u"";
+
+			std::basic_string_view<char16_t> ret = text.c_str();
+			Assert::AreEqual<unsigned>(ret.length(), 3);
+			Assert::IsTrue(ret == u"acd");
 		}
-
-#if false	// todo: 思ったより複雑そうなので後回し
-		TEST_METHOD(TestEmojiDistance)
-		{
-			basic_grapheme_cluster_string text(u"🎅🎅🏿🎅🏻🎅🏽");
-
-			auto size = std::distance(text.begin(), text.end());
-			Assert::AreEqual(4, static_cast<int>(size));
-		}
-#endif
 	};
 }
