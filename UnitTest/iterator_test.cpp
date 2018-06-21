@@ -49,6 +49,15 @@ namespace UnitTest
 			Assert::IsTrue((*it) == u'a');
 		}
 
+		TEST_METHOD(TestCompareSurrogate)
+		{
+			basic_grapheme_cluster_string text(u"a𡸴𣷹𣏓");
+
+			auto it = text.begin();
+			std::advance(it, 1);
+			Assert::IsTrue((*it) == u"𡸴");
+		}
+
 		TEST_METHOD(TestInsert)
 		{
 			basic_grapheme_cluster_string text(u"abcd");

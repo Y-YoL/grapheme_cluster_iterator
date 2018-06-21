@@ -19,9 +19,7 @@ namespace yol::detail {
 		std::basic_string_view<char_type> operator=(std::basic_string_view<char_type> c)
 		{
 			auto& buffer = m_owner->get_buffer();
-			auto view = m_owner->get_view().substr(m_index);
-			auto size = cluster_traits::calc_cluster_size(view);
-
+			auto size = view().length();
 			buffer.erase(m_index, size);
 			buffer.insert(m_index, c);
 
@@ -30,9 +28,9 @@ namespace yol::detail {
 
 		std::basic_string_view<char_type> view() const
 		{
-			auto view = m_owner->get_view();
+			auto view = m_owner->get_view().substr(m_index);
 			auto size = cluster_traits::calc_cluster_size(view);
-			return view.substr(m_index, size);
+			return view.substr(0, size);
 		}
 
 		bool operator==(char_type c) const
