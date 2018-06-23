@@ -65,9 +65,14 @@ namespace yol::grapheme_cluster_traits {
 			return 0;
 		}
 
-		codepoint_type c = static_cast<std::uint8_t>(text[0]);
-		if (calc_cluster_size(text) == 2) {
-			return (c << 8) | static_cast<std::uint8_t>(text[1]);
+		const auto c = static_cast<std::uint8_t>(text[0]);
+		if (iskanji(c)) {
+			const codepoint_type cp = c;
+			if (text.length() == 1) {
+				return (cp << 8);
+			} else {
+				return (cp << 8) | static_cast<std::uint8_t>(text[1]);
+			}
 		} else {
 			return c;
 		}
