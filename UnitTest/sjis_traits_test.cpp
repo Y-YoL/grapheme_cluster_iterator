@@ -37,7 +37,12 @@ namespace UnitTest
 
 		TEST_METHOD(TestKanaDistance2)
 		{
-			string text("ｶﾞｷﾞｸﾞｹﾞｺﾞ");
+#pragma warning(push)
+#pragma warning(disable:4838 4309)
+			char buff[] = { 0xb6, 0xde, 0xb7, 0xde, 0xb8, 0xde, 0xb9, 0xde, 0xba, 0xde, 0x00 }; // sjis: "ｶﾞｷﾞｸﾞｹﾞｺﾞ"
+#pragma warning(pop)
+
+			string text(buff);
 
 			auto size = std::distance(text.begin(), text.end());
 			Assert::AreEqual(5, static_cast<int>(size));
