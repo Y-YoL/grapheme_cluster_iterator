@@ -39,10 +39,19 @@ namespace yol::detail {
 			return v.length() == 1 && v[0] == c;
 		}
 
-		bool operator==(std::basic_string_view<char_type> c) const
-		{
-			return view() == c;
+#define GRAPHEME_CLUSTER_TYPE_OPERATOR_DEFINE(op)						\
+		bool operator op (std::basic_string_view<char_type> c) const	\
+		{																\
+			return view() op c;											\
 		}
+
+		GRAPHEME_CLUSTER_TYPE_OPERATOR_DEFINE(== );
+		GRAPHEME_CLUSTER_TYPE_OPERATOR_DEFINE(!= );
+		GRAPHEME_CLUSTER_TYPE_OPERATOR_DEFINE(< );
+		GRAPHEME_CLUSTER_TYPE_OPERATOR_DEFINE(> );
+		GRAPHEME_CLUSTER_TYPE_OPERATOR_DEFINE(<= );
+		GRAPHEME_CLUSTER_TYPE_OPERATOR_DEFINE(>= );
+#undef GRAPHEME_CLUSTER_TYPE_OPERATOR_DEFINE
 
 	private:
 		owner_type* m_owner;
