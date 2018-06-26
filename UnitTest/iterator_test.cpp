@@ -83,5 +83,14 @@ namespace UnitTest
 			Assert::AreEqual<unsigned>(ret.length(), 3);
 			Assert::IsTrue(ret == u"acd");
 		}
+
+		TEST_METHOD(TestCompare2)
+		{
+			basic_grapheme_cluster_string text(u"abcd");
+
+			auto it = text.begin();
+
+			Assert::IsTrue(*it < u"b");
+		}
 	};
 }
