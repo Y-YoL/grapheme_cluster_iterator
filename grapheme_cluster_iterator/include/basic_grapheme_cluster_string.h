@@ -8,11 +8,13 @@ namespace yol {
 	template<class Traits>
 	class basic_grapheme_cluster_string : detail::basic_grapheme_cluster_string_base<Traits> {
 		using base_type = detail::basic_grapheme_cluster_string_base<Traits>;
-		using cluster_traits = Traits;
-		using char_type = typename cluster_traits::char_type;
 
 	public:
+		using cluster_traits = Traits;
 		using iterator = detail::grapheme_cluster_iterator<cluster_traits>;
+
+	private:
+		using char_type = typename cluster_traits::char_type;
 
 	public:
 		/// <summary>
