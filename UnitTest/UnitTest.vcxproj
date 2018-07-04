@@ -401,6 +401,7 @@
     </ClCompile>
     <ClCompile Include="utf16_traits_test.cpp" />
     <ClCompile Include="iterator_test.cpp" />
+    <ClCompile Include="wchar_traits_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\grapheme_cluster_iterator\grapheme_cluster_iterator.vcxproj">

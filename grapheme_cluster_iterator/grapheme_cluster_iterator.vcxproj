@@ -416,6 +416,7 @@
   <ItemGroup>
     <ClCompile Include="source\grapheme_cluster_traits\sjis_cluster_traits.cpp" />
     <ClCompile Include="source\grapheme_cluster_traits\utf16_traits.cpp" />
+    <ClCompile Include="source\grapheme_cluster_traits\wchar_traits.cpp" />
     <ClCompile Include="source\test.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
